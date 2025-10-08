@@ -1,15 +1,17 @@
-name: First workflow
+name: Node CI
 
-# Quand le workflow doit-il s'exécuter ?
-on:
-  push:
-    branches:
-      - main  # Se déclenche uniquement quand on pousse sur main
+on: [push]
 
-# Que doit-il faire ?
 jobs:
-  say-hello:
-    runs-on: ubuntu-latest   # Environnement Linux fourni par GitHub
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Print a message
-        run: echo "Bonjour depuis GitHub Actions 🎉"
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Jest tests
+        run: npm test
