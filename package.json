@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/NicoReirgen/CICDtest#readme",
   "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0",
+    "globals": "^16.4.0",
     "jest": "^29.7.0"
   }
 }
