@@ -1,0 +1,15 @@
+name: First workflow
+
+# Quand le workflow doit-il s'exécuter ?
+on:
+  push:
+    branches:
+      - main  # Se déclenche uniquement quand on pousse sur main
+
+# Que doit-il faire ?
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest   # Environnement Linux fourni par GitHub
+    steps:
+      - name: Print a message
+        run: echo "Bonjour depuis GitHub Actions 🎉"
